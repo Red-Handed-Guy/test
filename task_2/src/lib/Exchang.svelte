@@ -26,6 +26,7 @@
 
   const changeValueTo = (e) => {
     toAmount = e.target.value
+    
     fromAmount = String(exchangTo())
   }
 
@@ -42,7 +43,8 @@
 
 <div class="exchang">
   <div class="exchang__input-wrapper">
-    <select class="exchang__input"
+    <select
+      class="exchang__input"
       name=""
       id=""
       on:change={changeSelectValueFrom}
@@ -58,11 +60,22 @@
         <option value={data.rates.TRY}>Турецкая лира</option>
       {/await}
     </select>
-    <input class="exchang__input" on:input={changeValueFrom} bind:value={fromAmount} type="number" />
+    <input
+      class="exchang__input"
+      on:input={changeValueFrom}
+      bind:value={fromAmount}
+      type="number"
+    />
   </div>
   <p>&harr;</p>
   <div class="exchang__input-wrapper">
-    <select class="exchang__input" name="" id="" on:change={changeSelectValueTo} bind:value={selectedTo}>
+    <select
+      class="exchang__input"
+      name=""
+      id=""
+      on:change={changeSelectValueTo}
+      bind:value={selectedTo}
+    >
       {#await promise then data}
         <option value={data.rates.USD}>Доллар</option>
         <option value={data.rates.EUR}>Евро</option>
@@ -73,7 +86,12 @@
         <option value={data.rates.TRY}>Турецкая лира</option>
       {/await}
     </select>
-    <input class="exchang__input" bind:value={toAmount} type="number" on:input={changeValueTo} />
+    <input
+      class="exchang__input"
+      bind:value={toAmount}
+      type="number"
+      on:input={changeValueTo}
+    />
   </div>
 </div>
 
@@ -91,11 +109,11 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    
+
     gap: 10px;
   }
 
-  .exchang__input{
+  .exchang__input {
     height: 50px;
     max-width: 400px;
     width: 100%;
